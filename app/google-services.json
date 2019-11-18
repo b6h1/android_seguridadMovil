@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "470701384236",
+    "firebase_url": "https://seguridadmovil-22933.firebaseio.com",
+    "project_id": "seguridadmovil-22933",
+    "storage_bucket": "seguridadmovil-22933.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:470701384236:android:6b7f89cc32327a6df0a789",
+        "android_client_info": {
+          "package_name": "com.example.seguridadmovil"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "470701384236-96ho4sdkvf5kpf6cbeel1s2akm37ejkr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.seguridadmovil",
+            "certificate_hash": "94ba5d95a61e63daa01e7d3188416333fadf5c71"
+          }
+        },
+        {
+          "client_id": "470701384236-75citic8qd1rprqam2njll82tbo7ukvj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAlJgENZCtFZCrWSCBWFA4iyvuEq2iEBC8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "470701384236-75citic8qd1rprqam2njll82tbo7ukvj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

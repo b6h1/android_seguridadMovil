@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -65,9 +66,7 @@ public class Registro extends AppCompatActivity {
         registrar_usuario.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 //
-
                 String usuario_dato = registro_email.getText().toString();
                 String clave = registro_contraseña.getText().toString();
                 String verificar_dato = verificar.getText().toString();
@@ -76,40 +75,24 @@ public class Registro extends AppCompatActivity {
 
                 if (usuario_dato!=""&&clave!=""&&verificar_dato!=""){
                     //validacion();
-
-
-
-
-
-
                         Toast.makeText(getApplicationContext(),"Usuario", Toast.LENGTH_SHORT).show();
                         createUserWithEmailAndPassword(usuario_dato, clave);
-
-
-
-
+                        //----------------------------
                 }
                 else{
-
                         Toast.makeText(getApplicationContext(),"Usuario Invalido", Toast.LENGTH_SHORT).show();
-
                 }
             }
         });
-
 
         volver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 Intent volver = new Intent( Registro.this, MainActivity.class);
                 startActivity(volver);
             }
         });
-
-
     }
-
 
     private void createUserWithEmailAndPassword(String email1,String password1){
         mAuth.createUserWithEmailAndPassword(email1, password1)
@@ -135,6 +118,13 @@ public class Registro extends AppCompatActivity {
                             Log.d("llave", "onComplete: "+llave);
 
                             mDatabaseRef.child(llave).setValue(u);
+
+                            SQLite lite = new SQLite(this, "DBUsuario", null, 1);
+                            SQLiteDatabase db = lite.getWritableDatabase();
+
+                            db.execSQL("INSERT INTO Usuario (Id, Correo, Nombre, Telefono) VALUES(" + llave + "','" + usuario_dato + "','" + nombre1 + "','" + telefono1 + "')");
+                            db.close();
+                            Toast.makeText(getApplicationContext(),"El usuario se ha creado exitosamente", Toast.LENGTH_SHORT).show();
 
                             startActivity(new Intent( Registro.this, MainActivity.class));
                             //FirebaseUser user = mAuth.getCurrentUser();
